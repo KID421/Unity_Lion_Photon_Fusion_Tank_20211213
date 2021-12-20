@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2834855723255257266}
   - component: {fileID: 2834855723255257267}
   - component: {fileID: 2834855723255257265}
+  - component: {fileID: 7033168902039523388}
   m_Layer: 0
   m_Name: "\u5766\u514B"
   m_TagString: Untagged
@@ -51,12 +52,13 @@ MonoBehaviour:
   DestroyWhenStateAuthorityLeaves: 0
   AllowStateAuthorityOverride: 0
   AoiPosition: {fileID: 0}
-  Flags: 2561
+  Flags: 2305
   NetworkGuid:
-    RawGuidValue: a46d42a8c4194cfab6343ad9fc21b0eb
+    RawGuidValue: 47ce3cd2e6ae0e946b9e1767bfe10313
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 2834855723255257265}
+  - {fileID: 7033168902039523388}
   SimulationBehaviours: []
 --- !u!114 &2834855723255257265
 MonoBehaviour:
@@ -100,10 +102,26 @@ MonoBehaviour:
     Acceleration: 10
     Braking: 10
     BaseJumpImpulse: 5
-    MaxSpeed: 4
+    MaxSpeed: 100
     MaxSlope: 60
     MaxSlopeSpeed: 5
     _gravity: {x: 0, y: -9.81, z: 0}
+--- !u!114 &7033168902039523388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834855723255257268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28c177ad69fa6748a7b11b5cef51c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  speed: 100
+  intervalFire: 0.35
+  bullet: {fileID: 0}
 --- !u!1 &2834855723960117132
 GameObject:
   m_ObjectHideFlags: 0
