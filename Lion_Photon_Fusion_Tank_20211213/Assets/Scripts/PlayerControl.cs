@@ -1,5 +1,6 @@
 using UnityEngine;
 using Fusion;
+using UnityEditor;
 
 /// <summary>
 /// 坦克玩家控制器
@@ -14,7 +15,9 @@ public class PlayerControl : NetworkBehaviour
     [Header("發射子彈間隔"), Range(0, 1.5f)]
     public float intervalFire = 0.35f;
     [Header("子彈物件")]
-    public GameObject bullet;
+    public Bullet bullet;
+    [Header("發射位置")]
+    public Transform pointFire;
 
     /// <summary>
     /// 連線角色控制器
@@ -22,10 +25,13 @@ public class PlayerControl : NetworkBehaviour
     private NetworkCharacterController ncc;
     #endregion
 
+    private TickTimer delay { get; set; }
+
     #region 事件
     private void Awake()
     {
         ncc = GetComponent<NetworkCharacterController>();
+        cam = GameObject.Find("Camera").GetComponent<Camera>();
     }
     #endregion
 
@@ -36,7 +42,11 @@ public class PlayerControl : NetworkBehaviour
     public override void FixedUpdateNetwork()
     {
         Move();
+        Fire();
     }
+
+    public Transform tower;
+    public Camera cam;
 
     /// <summary>
     /// 移動
@@ -48,6 +58,38 @@ public class PlayerControl : NetworkBehaviour
         {
             // 連線角色控制器.移動(速度 * 方向 * 連線一幀時間)
             ncc.Move(speed * dataInput.direction * Runner.DeltaTime);
+
+            Vector3 v3Mouse = dataInput.positionMouse;
+            v3Mouse.z = 50;
+            Vector3 positionWorldMouse = cam.ScreenToWorldPoint(v3Mouse);
+            positionWorldMouse.y = tower.position.y;
+            //cube.position = positionWorldMouse;
+
+            tower.forward = positionWorldMouse - transform.position;
+        }
+    }
+
+    private void Fire()
+    {
+        if (GetInput(out NetworkInputData dataInput))
+        {
+            if (delay.ExpiredOrNotRunning(Runner))
+            {
+                if (dataInput.inputFire)
+                {
+                    delay = TickTimer.CreateFromSeconds(Runner, intervalFire);
+
+                    Runner.Spawn(
+                        bullet,
+                        pointFire.position,
+                        tower.rotation,
+                        Object.InputAuthority,
+                        (runner, o) =>
+                        {
+                            o.GetComponent<Bullet>().Init();
+                        });
+                }
+            }
         }
     }
     #endregion

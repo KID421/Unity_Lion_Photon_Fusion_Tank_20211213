@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4025466363012806536}
   - component: {fileID: 4025466363012806537}
   - component: {fileID: 4025466363012806551}
+  - component: {fileID: -5031037201879713327}
   m_Layer: 0
   m_Name: "\u5B50\u5F48\u7269\u4EF6"
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4025466363012806539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 1, z: -5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 8541597887306956717}
   m_Father: {fileID: 0}
@@ -86,6 +87,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 4025466363012806536}
+  - {fileID: -5031037201879713327}
   SimulationBehaviours: []
 --- !u!135 &4025466363012806551
 SphereCollider:
@@ -100,6 +102,21 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0.2}
+--- !u!114 &-5031037201879713327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4025466363012806539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484ada4c905383844b1e714aebd21ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  speed: 30
+  lifeTime: 5
 --- !u!1001 &4025466362026192167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,15 +130,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4707543993296261770, guid: 6f4d29cfd8b2b4744bcabc5437eeb536, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4707543993296261770, guid: 6f4d29cfd8b2b4744bcabc5437eeb536, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4707543993296261770, guid: 6f4d29cfd8b2b4744bcabc5437eeb536, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 4707543993296261770, guid: 6f4d29cfd8b2b4744bcabc5437eeb536, type: 3}
       propertyPath: m_LocalPosition.x

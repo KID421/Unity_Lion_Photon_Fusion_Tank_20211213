@@ -31,5 +31,11 @@ public class Bullet : NetworkBehaviour
         // 存活計時器 = 計時器.從秒數建立(連線執行器，存活時間)
         life = TickTimer.CreateFromSeconds(Runner, lifeTime);
     }
+
+    public override void FixedUpdateNetwork()
+    {
+        if (life.Expired(Runner)) Runner.Despawn(Object);
+        else transform.Translate(0, 0, speed * Runner.DeltaTime);
+    }
     #endregion
 }

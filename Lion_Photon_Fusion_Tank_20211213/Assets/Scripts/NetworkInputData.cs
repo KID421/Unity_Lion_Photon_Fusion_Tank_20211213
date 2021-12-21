@@ -15,4 +15,6 @@ public struct NetworkInputData : INetworkInput
     /// ¬O§_ÂIÀ»¥ªÁä
     /// </summary>
     public bool inputFire;
+
+    public Vector3 positionMouse;
 }

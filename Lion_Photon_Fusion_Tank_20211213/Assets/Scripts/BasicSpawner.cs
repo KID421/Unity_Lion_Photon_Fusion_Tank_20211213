@@ -130,6 +130,8 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         if (Input.GetKey(KeyCode.A)) inputData.direction += Vector3.left;       // A ¥ª
         if (Input.GetKey(KeyCode.D)) inputData.direction += Vector3.right;      // D ¥k
 
+        inputData.positionMouse = Input.mousePosition;
+        
         inputData.inputFire = Input.GetKey(KeyCode.Mouse0);                     // ¥ªÁä µo®g
         #endregion
 
