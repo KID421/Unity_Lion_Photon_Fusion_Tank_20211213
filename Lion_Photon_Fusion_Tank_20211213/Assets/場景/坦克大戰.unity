@@ -1859,7 +1859,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1101679239}
   - component: {fileID: 1101679238}
-  - component: {fileID: 1101679237}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1867,14 +1866,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1101679237
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101679236}
-  m_Enabled: 1
 --- !u!20 &1101679238
 Camera:
   m_ObjectHideFlags: 0
@@ -1903,7 +1894,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 30
-  m_Depth: 0
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2629,6 +2620,7 @@ MonoBehaviour:
   - {fileID: 344758406}
   - {fileID: 823973052}
   - {fileID: 2136240249}
+  camMouse: {fileID: 1101679238}
 --- !u!4 &1455147677
 Transform:
   m_ObjectHideFlags: 0

@@ -24,6 +24,8 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
     public Text textVersion;
     [Header("玩家生成位置")]
     public Transform[] traSpawnPoints;
+    [Header("攝影機")]
+    public Camera camMouse;
 
     /// <summary>
     /// 玩家輸入的房間名稱
@@ -131,7 +133,11 @@ public class BasicSpawner : MonoBehaviour, INetworkRunnerCallbacks
         if (Input.GetKey(KeyCode.D)) inputData.direction += Vector3.right;      // D 右
 
         inputData.positionMouse = Input.mousePosition;
-        
+        inputData.positionMouse.z = 50;
+
+        Vector3 positionWorldMouse = camMouse.ScreenToWorldPoint(inputData.positionMouse);
+        inputData.positionMouse = positionWorldMouse;
+
         inputData.inputFire = Input.GetKey(KeyCode.Mouse0);                     // 左鍵 發射
         #endregion
 

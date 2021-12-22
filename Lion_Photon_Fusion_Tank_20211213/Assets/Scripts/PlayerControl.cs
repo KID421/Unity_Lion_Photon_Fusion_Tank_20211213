@@ -59,11 +59,8 @@ public class PlayerControl : NetworkBehaviour
             // 連線角色控制器.移動(速度 * 方向 * 連線一幀時間)
             ncc.Move(speed * dataInput.direction * Runner.DeltaTime);
 
-            Vector3 v3Mouse = dataInput.positionMouse;
-            v3Mouse.z = 50;
-            Vector3 positionWorldMouse = cam.ScreenToWorldPoint(v3Mouse);
+            Vector3 positionWorldMouse = dataInput.positionMouse;
             positionWorldMouse.y = tower.position.y;
-            //cube.position = positionWorldMouse;
 
             tower.forward = positionWorldMouse - transform.position;
         }
