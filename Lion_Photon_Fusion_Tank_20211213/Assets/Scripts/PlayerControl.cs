@@ -33,6 +33,16 @@ public class PlayerControl : NetworkBehaviour
         ncc = GetComponent<NetworkCharacterController>();
         cam = GameObject.Find("Camera").GetComponent<Camera>();
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print(collision.gameObject.name);
+
+        if (collision.gameObject.name.Contains("¤l¼u"))
+        {
+            Destroy(gameObject);
+        }
+    }
     #endregion
 
     #region ¤èªk
